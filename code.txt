@@ -1,3 +1,4 @@
+--SQL coding
 CREATE TABLE employee (
   emp_id INT PRIMARY KEY,
   first_name VARCHAR(40),
@@ -322,17 +323,3 @@ FROM works_with
 WHERE total_sales BETWEEN 10000 AND 50000
 JOIN client_name
 ON client.client_id = works_with.client_id;
-
-#trigger optional
-CREATE TABLE trigger_test(
-  message VARCHAR(100)
-);
---the following whould be in the terminal
-DELIMITER $$ --Delimeter is now $$ instead of ; to differentiate
-CREATE
-    TRIGGER my_trigger BEFORE INSERT
-    ON EMPLOYEE
-    FOR EACH ROW BEGIN
-        INSERT INTO trigger_test VALUES ('added new employee');
-    END$$
-DELIMITER ; --change delimeter back to ;
